@@ -1,11 +1,11 @@
-from os import listdir, path
 import numpy as np
-import scipy, cv2, os, sys, argparse, audio
-import json, subprocess, random, string
+import cv2, os, audio
+import subprocess
 from tqdm import tqdm
 from glob import glob
-import torch, face_detection
-from models import Wav2Lip
+import torch
+from module.face_det.models import FaceAlignment, LandmarksType
+from module.wave2lip.models import Wav2Lip
 import platform
 
 
@@ -22,8 +22,7 @@ def get_smoothened_boxes(boxes, T):
 	return boxes
 
 def face_detect(images):
-	detector = face_detection.FaceAlignment(face_detection.LandmarksType._2D, 
-											flip_input=False, device=device)
+	detector = FaceAlignment(LandmarksType._2D, flip_input=False, device=device)
 
 	batch_size = args.face_det_batch_size
 	
