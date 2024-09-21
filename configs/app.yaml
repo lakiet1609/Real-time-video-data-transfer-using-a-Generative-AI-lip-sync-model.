@@ -1,0 +1,19 @@
+wave2lip:
+  checkpoint_path: checkpoint_path
+  face_path: checkpoint_path
+  audio_path: checkpoint_path
+  outfile: checkpoint_path
+  static: False
+  image_size: 96
+  fps: 25
+  pads: [0, 10, 0, 0]
+  face_det_batch_size: 16
+  resize_factor: 1
+  crop: [0, -1, 0, -1]
+  box: [-1, -1, -1, -1]
+  rotate: False
+  nosmooth: False
+
+face_detection:
+
+
